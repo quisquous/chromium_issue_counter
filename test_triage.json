@@ -1,0 +1,52 @@
+{
+  "regex": {
+    "ALL": [
+      "component:Blink>Compositing",
+      "Blink>WebGL",
+      "Internals>Compositing",
+      "Internals>GPU"
+    ],
+    "RELEASEBLOCK": [
+      "label:ReleaseBlock-Stable",
+      "ReleaseBlock-Beta",
+      "ReleaseBlock-Dev"
+    ],
+    "PRI1": [
+      "Pri=0,1"
+    ],
+    "PRI2": [
+      "Pri=2 -Pri=0 -Pri=1"
+    ],
+    "PRI3": [
+      "-Pri=0 -Pri=1 -Pri=2"
+    ]
+  },
+  "queries": {
+    "blocking.open": {
+      "can": "open",
+      "q": "ALL RELEASEBLOCK -status:ExternalDependency"
+    },
+    "blocking.all": {
+      "can": "all",
+      "q": "ALL RELEASEBLOCK -status:ExternalDependency"
+    }
+  },
+  "patterns": {
+    "categories": {
+      "inputs": {
+        "blink_compositing": "component:Blink>Compositing"
+      },
+      "queries": {
+        ".p1.open": {
+          "can": "open",
+          "q": "PRI1"
+        },
+        ".stale180": {
+          "can": "open",
+          "q": "modified<today-180"
+        }
+      }
+    }
+  }
+}
+

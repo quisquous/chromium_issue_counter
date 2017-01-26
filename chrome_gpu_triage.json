@@ -1,0 +1,152 @@
+{
+  "regex": {
+    "ALL": [
+      "component:Blink>Compositing",
+      "Blink>WebGL",
+      "Internals>Compositing",
+      "Internals>GPU"
+    ],
+    "RELEASEBLOCK": [
+      "label:ReleaseBlock-Stable",
+      "ReleaseBlock-Beta",
+      "ReleaseBlock-Dev"
+    ],
+    "PRI1": [
+      "Pri=0,1"
+    ],
+    "PRI2": [
+      "Pri=2 -Pri=0 -Pri=1"
+    ],
+    "PRI3": [
+      "-Pri=0 -Pri=1 -Pri=2"
+    ]
+  },
+  "queries": {
+    "blocking.open": {
+      "can": "open",
+      "q": "ALL RELEASEBLOCK -status:ExternalDependency"
+    },
+    "blocking.all": {
+      "can": "all",
+      "q": "ALL RELEASEBLOCK -status:ExternalDependency"
+    },
+    "highpriority.open": {
+      "can": "open",
+      "q": "ALL PRI1 -status:ExternalDependency -Needs=Bisect,TestConfirmation"
+    },
+    "highpriority.all": {
+      "can": "all",
+      "q": "ALL PRI1 -status:ExternalDependency -Needs=Bisect,TestConfirmation"
+    },
+    "new_untriaged.open": {
+      "can": "open",
+      "q": "ALL status:Unconfirmed,Untriaged -status:ExternalDependency -Needs=Feedback,Bisect,TestConfirmation"
+    },
+    "needs_feedback.open": {
+      "can": "open",
+      "q": "ALL -status:ExternalDependency -Needs=Feedback,TestConfirmation"
+    },
+    "overall.p1.open": {
+      "can": "open",
+      "q": "ALL PRI1"
+    },
+    "overall.p1.all": {
+      "can": "all",
+      "q": "ALL PRI1"
+    },
+    "overall.p2.open": {
+      "can": "open",
+      "q": "ALL PRI2"
+    },
+    "overall.p2.all": {
+      "can": "all",
+      "q": "ALL PRI2"
+    },
+    "overall.p3.open": {
+      "can": "open",
+      "q": "ALL PRI3"
+    },
+    "overall.p3.all": {
+      "can": "all",
+      "q": "ALL PRI3"
+    },
+    "overall.unconfirmed.open": {
+      "can": "open",
+      "q": "ALL status:unconfirmed"
+    },
+    "overall.untriaged.open": {
+      "can": "open",
+      "q": "ALL status:untriaged"
+    },
+    "overall.available.open": {
+      "can": "open",
+      "q": "ALL status:available"
+    },
+    "overall.assigned.open": {
+      "can": "open",
+      "q": "ALL status:assigned"
+    },
+    "overall.started.open": {
+      "can": "open",
+      "q": "ALL status:started"
+    },
+    "overall.external_dependency.open": {
+      "can": "open",
+      "q": "ALL status:ExternalDependency"
+    }
+  },
+  "patterns": {
+    "categories": {
+      "inputs": {
+        "blink_compositing": "component:Blink>Compositing",
+        "blink_webgl": "component:Blink>WebGL",
+        "internals_compositing": "component:Internals>Compositing",
+        "internals_compositing_animation": "component:Internals>Compositing>Animation",
+        "internals_compositing_images": "component:Internals>Compositing>Images",
+        "internals_compositing_quads": "component:Internals>Compositing>Quads",
+        "internals_compositing_rasterization": "component:Internals>Compositing>Rasterization",
+        "internals_compositing_software": "component:Internals>Compositing>Software",
+        "internals_gpu": "component:Internals>GPU",
+        "internals_gpu_angle": "component:Internals>GPU>ANGLE",
+        "internals_gpu_canvas2d": "component:Internals>GPU>Canvas2D",
+        "internals_gpu_image": "component:Internals>GPU>Image",
+        "internals_gpu_implsidepainting": "component:Internals>GPU>ImplSidePainting",
+        "internals_gpu_internals": "component:Internals>GPU>Internals",
+        "internals_gpu_rasterization": "component:Internals>GPU>Rasterization",
+        "internals_gpu_scheduling": "component:Internals>GPU>Scheduling",
+        "internals_gpu_swiftshader": "component:Internals>GPU>SwiftShader",
+        "internals_gpu_testing": "component:Internals>GPU>Testing",
+        "internals_gpu_vendor_specific": "component:Internals>GPU>VendorSpecific",
+        "internals_gpu_video": "component:Internals>GPU>Video",
+        "internals_gpu_webgl": "component:Internals>GPU>WebGL"
+      },
+      "queries": {
+        ".p1.open": {
+          "can": "open",
+          "q": "PRI1"
+        },
+        ".p2.open": {
+          "can": "open",
+          "q": "PRI2"
+        },
+        ".p3.open": {
+          "can": "open",
+          "q": "PRI3"
+        },
+        ".all": {
+          "can": "all",
+          "q": ""
+        },
+        ".stale31": {
+          "can": "open",
+          "q": "modified<today-31"
+        },
+        ".stale180": {
+          "can": "open",
+          "q": "modified<today-180"
+        }
+      }
+    }
+  }
+}
+
