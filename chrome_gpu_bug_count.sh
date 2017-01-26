@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 DEPOTTOOLS=$1
 OUTDIR=$2
 
