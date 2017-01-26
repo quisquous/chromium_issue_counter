@@ -30,6 +30,10 @@
       "can": "all",
       "q": "ALL RELEASEBLOCK -status:ExternalDependency"
     },
+    "blocking.fixed": {
+      "can": "all",
+      "q": "ALL RELEASEBLOCK status:Fixed"
+    },
     "highpriority.open": {
       "can": "open",
       "q": "ALL PRI1 -status:ExternalDependency -Needs=Bisect,TestConfirmation"
@@ -37,6 +41,10 @@
     "highpriority.all": {
       "can": "all",
       "q": "ALL PRI1 -status:ExternalDependency -Needs=Bisect,TestConfirmation"
+    },
+    "highpriority.fixed": {
+      "can": "all",
+      "q": "ALL PRI1 status:Fixed"
     },
     "new_untriaged.open": {
       "can": "open",
@@ -137,6 +145,10 @@
           "can": "all",
           "q": ""
         },
+        ".fixed": {
+          "can": "all",
+          "q": "status:Fixed"
+        },
         ".stale31": {
           "can": "open",
           "q": "modified<today-31"
@@ -144,6 +156,10 @@
         ".stale180": {
           "can": "open",
           "q": "modified<today-180"
+        },
+        ".untriaged": {
+          "can": "open",
+          "q": "status:Unconfirmed,Untriaged -status:ExternalDependency -Needs=Feedback,Bisect,TestConfirmation"
         }
       }
     }
