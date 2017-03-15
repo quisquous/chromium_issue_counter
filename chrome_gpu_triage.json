@@ -126,7 +126,8 @@
         "internals_gpu_testing": "component:Internals>GPU>Testing",
         "internals_gpu_vendor_specific": "component:Internals>GPU>VendorSpecific",
         "internals_gpu_video": "component:Internals>GPU>Video",
-        "internals_gpu_webgl": "component:Internals>GPU>WebGL"
+        "internals_gpu_webgl": "component:Internals>GPU>WebGL",
+        "internals_skia": "component:Internals>Skia"
       },
       "queries": {
         ".p1.open": {
